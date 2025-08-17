@@ -1,14 +1,15 @@
 import { BrainCircuit, Github } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 
 export function Navbar() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 border-b border-border bg-background/60 backdrop-blur supports-[backdrop-filter]:bg-background/40">
       <div className="container flex h-16 items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <BrainCircuit className="h-6 w-6 text-primary animate-glow" />
           <span className="font-mono text-sm tracking-wider">Cognitext</span>
-        </a>
+        </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm">
           <a
             href="#features"
@@ -22,6 +23,12 @@ export function Navbar() {
           >
             Impact
           </a>
+          <Link
+            to="/setup"
+            className="text-muted-foreground hover:text-foreground"
+          >
+            Setup
+          </Link>
           <a
             href="#about"
             className="text-muted-foreground hover:text-foreground"
