@@ -2,7 +2,6 @@ import {
   Download,
   CheckCircle,
   AlertTriangle,
-  ExternalLink,
   Apple,
   HardDrive,
   Wifi,
@@ -118,19 +117,14 @@ export function SetupPage() {
                       1
                     </div>
                     <div>
-                      <h4 className="font-semibold">Visit the Download Link</h4>
+                      <h4 className="font-semibold">Download for Mac</h4>
                       <p className="text-sm text-muted-foreground mb-2">
-                        Go to our secure download folder to access the latest
-                        version
+                        Get the latest version directly from our servers.
                       </p>
-                      <Button asChild variant="outline" className="gap-2">
-                        <a
-                          href="https://drive.google.com/drive/folders/1V30kiuDcuIcxBSXVsZiNAshs7xiXsum6?usp=sharing"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <ExternalLink className="h-4 w-4" />
-                          Open Download Folder
+                      <Button asChild className="gap-2 bg-blue-600 hover:bg-blue-700">
+                        <a href="/api/download?os=mac">
+                          <Download className="h-4 w-4" />
+                          Download for macOS
                         </a>
                       </Button>
                     </div>
@@ -143,15 +137,13 @@ export function SetupPage() {
                       <h4 className="font-semibold">Download the DMG File</h4>
                       <ul className="text-sm text-muted-foreground space-y-1 mt-1">
                         <li>
-                          • Look for{" "}
+                          • Look for a file named like{" "}
                           <code className="bg-muted px-1 rounded text-xs">
-                            Cognitext-1.0.0.dmg
-                          </code>{" "}
-                          (210.3 MB)
+                            Cognitext-1.x.x.dmg
+                          </code>
                         </li>
-                        <li>• Click on the file to download it to your Mac</li>
                         <li>
-                          • The download will appear in your Downloads folder
+                          • The download will automatically appear in your Downloads folder
                         </li>
                       </ul>
                     </div>
@@ -432,19 +424,14 @@ export function SetupPage() {
                       1
                     </div>
                     <div>
-                      <h4 className="font-semibold">Visit the Download Link</h4>
+                      <h4 className="font-semibold">Download for Windows</h4>
                       <p className="text-sm text-muted-foreground mb-2">
-                        Go to our secure download folder to access the latest
-                        version
+                        Get the latest installer directly from our servers.
                       </p>
-                      <Button asChild variant="outline" className="gap-2">
-                        <a
-                          href="https://drive.google.com/drive/folders/1V30kiuDcuIcxBSXVsZiNAshs7xiXsum6?usp=sharing"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <ExternalLink className="h-4 w-4" />
-                          Open Download Folder
+                      <Button asChild className="gap-2 bg-blue-600 hover:bg-blue-700">
+                        <a href="/api/download?os=win">
+                          <Download className="h-4 w-4" />
+                          Download for Windows
                         </a>
                       </Button>
                     </div>
@@ -459,15 +446,13 @@ export function SetupPage() {
                       </h4>
                       <ul className="text-sm text-muted-foreground space-y-1 mt-1">
                         <li>
-                          • Look for{" "}
+                          • Look for a file named like{" "}
                           <code className="bg-muted px-1 rounded text-xs">
-                            Cognitext Setup 1.0.0.exe
-                          </code>{" "}
-                          (110.3 MB)
+                            Cognitext Setup 1.x.x.exe
+                          </code>
                         </li>
-                        <li>• Click on the file to download it to your PC</li>
                         <li>
-                          • The download will appear in your Downloads folder
+                          • The download will automatically appear in your Downloads folder
                         </li>
                       </ul>
                     </div>
@@ -665,9 +650,11 @@ export function SetupPage() {
                 Download Cognitext now and experience the future of AI-powered
                 text processing
               </p>
-              <Button size="lg" className="gap-2">
-                <Download className="h-4 w-4" />
-                Download Cognitext
+              <Button size="lg" className="gap-2" asChild>
+                <a href="#hero">
+                  <Download className="h-4 w-4" />
+                  Get Cognitext
+                </a>
               </Button>
             </div>
           </div>
