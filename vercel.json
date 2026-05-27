@@ -6,7 +6,7 @@
     },
     {
       "source": "/api/:path*",
-      "destination": "https://cognitext.feeltiptop.com/api/:path*"
+      "destination": "/api/proxy"
     }
   ]
 }
