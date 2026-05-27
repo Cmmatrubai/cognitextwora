@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/download",
+      "destination": "/api/download"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://cognitext.feeltiptop.com/api/:path*"
+    }
+  ]
+}
