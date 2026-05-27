@@ -1,79 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --color-background: 222.2 84% 4.9%;
-  --color-foreground: 210 40% 98%;
-  --color-card: 222.2 84% 4.9%;
-  --color-card-foreground: 210 40% 98%;
-  --color-popover: 222.2 84% 4.9%;
-  --color-popover-foreground: 210 40% 98%;
-  --color-primary: 217.2 91.2% 59.8%;
-  --color-primary-foreground: 222.2 84% 4.9%;
-  --color-secondary: 217.2 32.6% 17.5%;
-  --color-secondary-foreground: 210 40% 98%;
-  --color-muted: 217.2 32.6% 17.5%;
-  --color-muted-foreground: 215 20.2% 65.1%;
-  --color-accent: 217.2 32.6% 17.5%;
-  --color-accent-foreground: 210 40% 98%;
-  --color-destructive: 0 62.8% 30.6%;
-  --color-destructive-foreground: 210 40% 98%;
-  --color-border: 217.2 32.6% 17.5%;
-  --color-input: 217.2 32.6% 17.5%;
-  --color-ring: 224.3 76.3% 94.1%;
-
-  --container-padding: 2rem;
-  --container-max-width: 1400px;
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
 }
 
-@layer base {
-  body {
-    @apply bg-background text-foreground;
-    font-family: "Inter", sans-serif;
-  }
+/* Cognitext shared design tokens */
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Space Mono", monospace;
-  }
+:root {
+  /* Palette — anchored to the existing brand, but pulled cleaner */
+  --paper-50:  #fdf8ef;
+  --paper-100: #f7eedf;
+  --paper-200: #ecdfc9;
+  --paper-300: #d8c2a6;
+
+  --forest-50:  #eef4f0;
+  --forest-100: #dceae2;
+  --forest-200: #b4cdbf;
+  --forest-300: #7aa88f;
+  --forest-500: #2d5a47;
+  --forest-700: #18392d;
+  --forest-800: #11251d;
+  --forest-900: #0a1914;
+
+  --ember-100: #ffe2c4;
+  --ember-200: #ffc89a;
+  --ember-300: #f29b5d;
+  --ember-400: #e97a32;
+  --ember-500: #d8641f;
+
+  --ink: #1a2922;
+  --ink-soft: rgba(26, 41, 34, 0.66);
+  --ink-mute: rgba(26, 41, 34, 0.46);
+  --ink-faint: rgba(26, 41, 34, 0.22);
+
+  --hairline: rgba(24, 57, 45, 0.10);
+  --hairline-strong: rgba(24, 57, 45, 0.18);
+
+  /* Semantic — tokens that should swap meaning between light/dark.
+     Components prefer these over the raw scale for theme-aware surfaces. */
+  --surface:        var(--paper-50);
+  --surface-2:      var(--paper-100);
+  --surface-wash:   rgba(24, 57, 45, 0.04);   /* subtle "slightly elevated" */
+  --surface-soft:   rgba(255, 255, 255, 0.5);  /* translucent panel over surface */
+  --btn-primary-bg: var(--forest-900);
+  --btn-primary-fg: var(--paper-50);
+  --btn-shadow:     0 10px 24px rgba(10, 25, 20, 0.22);
 }
 
-@layer utilities {
-  .container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: var(--container-padding);
-    padding-right: var(--container-padding);
-    max-width: var(--container-max-width);
-  }
+[data-theme="dark"] {
+  /* Inverted palette — warm dark, kept on-brand */
+  --paper-50:  #243f33;
+  --paper-100: #0d1b15;
+  --paper-200: #2e4b3d;
+  --paper-300: #3a5446;
 
-  @container (min-width: 640px) {
-    .container {
-      --container-padding: 1.5rem;
-    }
-  }
+  --forest-50:  rgba(255, 255, 255, 0.04);
+  --forest-100: rgba(255, 255, 255, 0.08);
+  --forest-200: rgba(255, 255, 255, 0.14);
+  --forest-500: #8fbfa3;
+  --forest-700: #d7e7df;
+  --forest-800: #ece5d4;
+  --forest-900: #f4ecd9;   /* primary-button bg flips to warm cream */
 
-  @container (min-width: 1024px) {
-    .container {
-      --container-padding: 2rem;
-    }
-  }
+  --ink:       #ece5d4;
+  --ink-soft:  rgba(236, 229, 212, 0.72);
+  --ink-mute:  rgba(236, 229, 212, 0.52);
+  --ink-faint: rgba(236, 229, 212, 0.28);
 
-  .animate-glow {
-    animation: glow 3s ease-in-out infinite;
-  }
+  --hairline:        rgba(255, 255, 255, 0.10);
+  --hairline-strong: rgba(255, 255, 255, 0.20);
+
+  --surface:        var(--paper-50);
+  --surface-2:      var(--paper-100);
+  --surface-wash:   rgba(255, 255, 255, 0.04);
+  --surface-soft:   rgba(255, 255, 255, 0.06);
+  --btn-primary-bg: var(--paper-50);
+  --btn-primary-fg: var(--paper-100);
+  --btn-shadow:     0 10px 28px rgba(0, 0, 0, 0.45);
 }
 
-@keyframes glow {
-  0%,
-  100% {
-    filter: drop-shadow(0 0 20px hsl(var(--color-primary)));
-  }
-  50% {
-    filter: drop-shadow(0 0 40px hsl(var(--color-primary)));
-  }
+[data-theme="dark"] body,
+[data-theme="dark"] {
+  color-scheme: dark;
 }
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  font-family: "Manrope", system-ui, sans-serif;
+  color: var(--ink);
+  background-color: var(--paper-100);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.font-display { font-family: "Space Grotesk", system-ui, sans-serif; letter-spacing: -0.025em; }
+.font-mono    { font-family: "IBM Plex Mono", monospace; }
+
+/* Reusable surfaces */
+.eyebrow {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--forest-700);
+  background: #fff;
+  border: 1px solid var(--hairline);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  letter-spacing: 0;
+}
+
+/* Smooth scroll containers */
+.smooth-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(24,57,45,0.20) transparent;
+}
+.smooth-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.smooth-scroll::-webkit-scrollbar-thumb { background: rgba(24,57,45,0.18); border-radius: 8px; }
+.smooth-scroll::-webkit-scrollbar-track { background: transparent; }
+
+/* Animation helpers */
+@keyframes ct-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes ct-blur-in {
+  from { opacity: 0; filter: blur(8px); transform: translateY(6px); }
+  to   { opacity: 1; filter: blur(0);   transform: translateY(0); }
+}
+@keyframes ct-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes ct-pulse-ring {
+  0% { transform: scale(0.96); opacity: 0.55; }
+  70% { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+@keyframes ct-stream {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+@keyframes ct-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+
+.skeleton-line {
+  background: linear-gradient(90deg,
+    rgba(24,57,45,0.06) 0%,
+    rgba(24,57,45,0.12) 50%,
+    rgba(24,57,45,0.06) 100%);
+  background-size: 200% 100%;
+  animation: ct-shimmer 1.6s linear infinite;
+  border-radius: 4px;
+}
+
+/* Focus rings — accessible without being loud */
+button:focus-visible, [role="button"]:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--ember-400);
+  outline-offset: 2px;
+}
+
+button { font-family: inherit; }
